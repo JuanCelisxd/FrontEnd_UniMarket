@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { InicioComponent } from './pagina/inicio/inicio.component.ts';
-import { LoginComponent } from './pagina/login/login.component.ts';
-import { RegistroComponent } from './pagina/registro/registro.component.ts';
+import { InicioComponent } from './Pagina/inicio/inicio.component';
+import { LoginComponent } from './Pagina/login/login.component';
+import { RegistroComponent } from './Pagina/registro/registro.component';
 
 const routes: Routes = [
   {path : "", component: InicioComponent},
-  {path : "Login", component: LoginComponent},
-  {path : "Registro", component: RegistroComponent},
+  {path : "login", component: LoginComponent},
+  {path : "registro", component: RegistroComponent},
   {path : "**", pathMatch: "full", redirectTo: ""}
 ];
 
