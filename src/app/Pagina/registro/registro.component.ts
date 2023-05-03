@@ -7,15 +7,16 @@ import { UsuarioDTO } from 'src/app/modelo/usuario-dto';
   styleUrls: ['./registro.component.css']
 })
 export class RegistroComponent {
-    usuario:UsuarioDTO;
-    constructor(){
-      this.usuario= new UsuarioDTO();
-    }
-
-    public registrar(){
-      console.log(this.usuario);
-    }
-    public sonIguales():boolean{
-      return this.usuario.password == this.usuario.confirmaPassword;
-      }
+  usuario: UsuarioDTO;
+  constructor() {
+    this.usuario = new UsuarioDTO();
+  }
+  public registrar() {
+    console.log(this.usuario);
+  }
+  public sonIguales(): boolean {
+    return this.usuario.password == this.usuario.confirmaPassword;
+  }
 }
+
+
