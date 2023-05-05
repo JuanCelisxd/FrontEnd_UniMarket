@@ -1,70 +1,74 @@
-body {
+.cuerpo {
+	height: 80%;
+	width: 80%;
 	margin: 0;
 	padding: 0;
-	background: white;
+	background: lightblue;
 }
-.container {
-	position: absolute;
-	left: 48%;
-	top: 45%;
-	transform: translate(-50%,-50%);
-	padding: 10px;
-}
-
-input {
-	outline: none;
-	box-sizing: border-box;
-	height: 60px;
-	width: 0px;
-	padding: 0 20px;
-	color: #000;
-	border-radius: 50px;
-	font-size: 20px;
-	border: 1px solid #D50000;
-	transition: all .7s ease;
-}
-
-::placeholder {
-	color: grey;
-}
-
-.btn {
-	position: absolute;
-	right: 0px;
-	top: 0px;
-	width: 80px;
-	height: 80px;
-	background: #D50000;
-	line-height: 80px;
-	border-radius: 50%;
-	text-align: center;
-	cursor: pointer;
-	transition: .5s;
-}
-
-.btn i {
-	font-size: 25px;
-	color: white;
-	line-height: 80px;
-	transition: all .7s ease;
-}
-
-.container:hover input {
-	width: 350px;
-}
-
-.container:hover i{
-	transform: rotate(-360deg);
-}
-
-.btn:hover{
-	background: #cc0000;
-}
-
-
-#footer{
+	.containerSearch{
+		position: absolute;
+		left: 50%;
+		top: 30%;
+		transform: translate(-50%,-50%);
+		padding: 10px;
+	}
+	
+	.inputtest {
+		outline: none;
+		box-sizing: border-box;
+		height: 35px;
+		width: 0px;
+		padding: 0 20px;
+		color: #000;
+		border-radius: 50px;
+		font-size: 20px;
+		border: 1px solid rgb(106, 170, 10);
+		transition: all .7s ease;
+	}
+	
+	::placeholder {
+		color: grey;
+	}
+	
+	.btn {
+		position: absolute;
+		right: 10px;
+		top: 0px;
+		width: 50px;
+		height: 50px;
+		background: rgb(106, 170, 10);
+		line-height: 70px;
+		border-radius: 50%;
+		text-align: start;
+		cursor: pointer;
+		transition: .5s;
+	}
+	
+	.btn i {
+		font-size: 25px;
+		color: black;
+		line-height: 80px;
+		transition: all .7s ease;
+	}
+	
+	.container:hover .inputtest {
+		width: 350px;
+	}
+	
+	.container:hover i{
+		transform: rotate(-360deg);
+	}
+	
+	.btn:hover{
+		background: rgb(106, 170, 10);
+	}
+	
+footer{
+	height: 80%;
+	width: 100%;
     background-color: rgb(106, 170, 10);
     text-align: center;
     color: white;
     font-style: italic;
+	
 }
