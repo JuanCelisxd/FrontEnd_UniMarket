@@ -1,0 +1,64 @@
+.contenedor-input-search{
+	position: relative;
+	margin-top: 60px;
+    height: 80px;
+    margin-bottom: 60px;
+}
+
+.container-button {
+	position: absolute;
+	left: 48%;
+	top: 45%;
+	transform: translate(-50%,-50%);
+	padding: 10px;
+}
+
+.container-button input {
+	outline: none;
+	box-sizing: border-box;
+	height: 60px;
+	width: 0px;
+	padding: 0 20px;
+	color: #000;
+	border-radius: 50px;
+	font-size: 20px;
+	border: 1px solid #D50000;
+	transition: all .7s ease;
+}
+
+.container-button ::placeholder {
+	color: grey;
+}
+
+.container-button .btn-input {
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	width: 80px;
+	height: 80px;
+	background: #D50000;
+	line-height: 80px;
+	border-radius: 50%;
+	text-align: center;
+	cursor: pointer;
+	transition: .5s;
+}
+
+.container-button .btn-input i {
+	font-size: 25px;
+	color: white;
+	line-height: 80px;
+	transition: all .7s ease;
+}
+
+.container-button:hover input {
+	width: 350px;
+}
+
+.container-button:hover i{
+	transform: rotate(-360deg);
+}
+
+.container-button .btn-input:hover{
+	background: #cc0000;
+}
