@@ -7,10 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'UniMarket';
-  // router:Router 
-  // public iraBusqueda(valor:String){
-  //   if(valor){
-  //     this.router.navigate(["/busqueda", valor]);
-  //   }
-  // }
+ 
 }

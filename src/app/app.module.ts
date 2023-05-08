@@ -23,6 +23,7 @@ import { PublicarProductoComponent } from './Pagina/publicar-producto/publicar-p
 import { RealizarPagoComponent } from './Pagina/realizar-pago/realizar-pago.component';
 import { SubastaComponent } from './Pagina/subasta/subasta.component';
 import { VerProductoComponent } from './Pagina/ver-producto/ver-producto.component';
+import { OverviewLogeadoComponent } from './Pagina/overview-logeado/overview-logeado.component';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { VerProductoComponent } from './Pagina/ver-producto/ver-producto.compone
     PublicarProductoComponent,
     RealizarPagoComponent,
     SubastaComponent,
-    VerProductoComponent
+    VerProductoComponent,
+    OverviewLogeadoComponent,
   ],
   imports: [
     BrowserModule,
