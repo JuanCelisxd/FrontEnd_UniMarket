@@ -11,6 +11,12 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
+            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search" (submit)="iraBusqueda(textoBusqueda.value)">
+              <input #textoBusqueda type="search" class="form-control" placeholder="Buscar..."
+                aria-label="Search">
+            </form>
+          </li>
+          <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="#"><img src="../assets/imagenes/agregar-producto.png"
                 alt="" width="50" height="30"></a>
           </li>

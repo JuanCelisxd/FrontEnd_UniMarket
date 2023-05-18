@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser'; 
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { InicioComponent } from './Pagina/inicio/inicio.component';
@@ -24,7 +23,7 @@ import { RealizarPagoComponent } from './Pagina/realizar-pago/realizar-pago.comp
 import { SubastaComponent } from './Pagina/subasta/subasta.component';
 import { VerProductoComponent } from './Pagina/ver-producto/ver-producto.component';
 import { OverviewLogeadoComponent } from './Pagina/overview-logeado/overview-logeado.component';
-import { DetalleProductoComponent } from './pagina/detalle-producto/detalle-producto.component';
+import { DetalleProductoComponent } from './Pagina/detalle-producto/detalle-producto.component';
 
 
 @NgModule({

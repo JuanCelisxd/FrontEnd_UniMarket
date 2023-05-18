@@ -27,7 +27,7 @@ const routes: Routes = [
   {path: "crear-producto", component: CrearProductoComponent},
   {path: "actualizar-datos", component: ActualizarDatosComponent},
   {path: "aprobar-productos-moderador", component: AprobarProductosModeradorComponent},
-  {path: "buscar-producto", component: BuscarProductoComponent},
+  {path: "busqueda", component: BusquedaComponent },
   {path: "busqueda/:texto", component: BusquedaComponent},
   {path: "carrito-compras", component: CarritoComprasComponent},
   {path: "confirma-subasta", component: ConfirmaSubastaComponent},
@@ -40,7 +40,8 @@ const routes: Routes = [
   {path: "realizar-pago", component: RealizarPagoComponent},
   {path: "subasta", component: SubastaComponent},
   {path: "ver-producto", component: VerProductoComponent},
-  {path : "**", pathMatch: "full", redirectTo: ""}
+  {path : "**", pathMatch: "full", redirectTo: ""},
+  
 ];
 
 @NgModule({
