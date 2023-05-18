@@ -8,23 +8,23 @@ import { ProductoDTO } from 'src/app/modelo/producto-dto';
 })
 export class CrearProductoComponent {
   //Atributos
-  categorias:string[];
-  productoDTO:ProductoDTO;
-  archivos!:FileList;
+  categorias: string[];
+  productoDTO: ProductoDTO;
+  archivos!: FileList;
   //Constructor
-  constructor(){
-    this.categorias= [];
+  constructor() {
+    this.categorias = [];
     this.productoDTO = new ProductoDTO();
   }
 
   //Funciones
-  public crearProducto(){
-    if(this.archivos != null && this.archivos.length > 0){
-    console.log(this.productoDTO);
-    }else{
-    console.log('Debe seleccionar al menos una imagen');
+  public crearProducto() {
+    if (this.archivos != null && this.archivos.length > 0) {
+      console.log(this.productoDTO);
+    } else {
+      console.log('Debe seleccionar al menos una imagen');
     }
-    }
+  }
   ngOnInit(): void {
     this.categorias.push('Tecnología');
     this.categorias.push('Hogar');
@@ -32,11 +32,11 @@ export class CrearProductoComponent {
     this.categorias.push('Moda');
     this.categorias.push('Mascotas');
   }
-  onFileChange(event:any){
+  onFileChange(event: any) {
     if (event.target.files.length > 0) {
-    this.archivos = event.target.files;
+      this.archivos = event.target.files;
     }
-    }
-    
-  
+  }
+
+
 }

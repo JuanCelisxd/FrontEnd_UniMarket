@@ -1,0 +1,14 @@
+form{
+    padding: 20px;
+    box-sizing: border-box;
+    border: 2px solid green;
+    border-radius: 10px;
+    color: white;
+    background-color: rgb(7, 44, 145);
+    margin: 20px 20px;
+}
+
+h3{
+    color: green;
+    text-align: center;
+}
