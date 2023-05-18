@@ -17,7 +17,7 @@
     <td>
     <div class="d-flex text-start align-items-center" >
     <div class="col-4 me-3 ms-3" >
-    <img [src]="item.producto.imagenes[0]" width="100%" />
+    <img [src]="item.producto.imagen" width="100%" />
     </div>
     <span class="col-8" >{{item.producto.nombre}}</span>
     </div>
@@ -29,7 +29,7 @@
     
     <input type="number" name="unidades" class="form-control
     
-    text-center" [(ngModel)]="item.cantidad" min="0" />
+    text-center" [(ngModel)]="item.producto.unidades" min="0" />
     
     </td>
     <td class="align-middle" >
