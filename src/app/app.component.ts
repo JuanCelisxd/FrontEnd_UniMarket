@@ -9,14 +9,8 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'UniMarket';
 
-  constructor(private router:Router){
+  constructor(private router: Router) {
 
   }
 
-  public iraBusqueda(valor:string){
-    if (valor) {
-      this.router.navigate(["/busqueda", valor]);
-    }
-  }
- 
 }

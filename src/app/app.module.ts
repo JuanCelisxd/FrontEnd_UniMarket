@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser'; 
+import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { InicioComponent } from './Pagina/inicio/inicio.component';
@@ -24,6 +24,8 @@ import { SubastaComponent } from './Pagina/subasta/subasta.component';
 import { VerProductoComponent } from './Pagina/ver-producto/ver-producto.component';
 import { OverviewLogeadoComponent } from './Pagina/overview-logeado/overview-logeado.component';
 import { DetalleProductoComponent } from './Pagina/detalle-producto/detalle-producto.component';
+import { AtrasComponent } from './Pagina/atras/atras.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -50,11 +52,13 @@ import { DetalleProductoComponent } from './Pagina/detalle-producto/detalle-prod
     VerProductoComponent,
     OverviewLogeadoComponent,
     DetalleProductoComponent,
+    AtrasComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

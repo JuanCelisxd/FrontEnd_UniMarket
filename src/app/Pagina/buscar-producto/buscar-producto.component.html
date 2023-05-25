@@ -1,1 +1,36 @@
-<p>buscar-producto works!</p>
+<div class="buscar-producto">
+    <app-atras></app-atras>
+    <div class="row justify-content-center">
+        <div class="busqueda">
+            <app-busqueda></app-busqueda>
+        </div>        
+    </div>
+
+    <div *ngIf="filtro.length > 0" class="row mb-2">
+        <div *ngFor="let item of filtro" class="col-md-6">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col-auto d-none d-lg-block">
+                    <img src={{item.imagen}} width="200" height="250" />
+                </div>
+                <div class="col p-4 d-flex flex-column position-static">
+                    <h3 class="mb-0">{{item.nombre}}</h3> <br>
+                    <p class="card-text infouser"> <i class="fa-solid fa-circle-user fa-lg"></i> @NataliaGiraldo </p>
+                    <p>{{item.descripcion}}</p>
+                    <h2 class="mb-0">$ {{item.precio}} COP</h2><br>
+                    <div class="stars">
+                        <i class="fa-solid fa-star fa-xl" *ngFor="let item of [].constructor(5); index as i"></i>
+                    </div><br>
+                    <button type="button" class="btn btn-primary btn" (click)="verDetalleProducto(item.codigo)">Ver detalle</button>                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="filtro.length == 0">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+            <h4 style="text-align: center; margin-top: 1em;">Lo siento, no se encontraron resultados para tu búsqueda: {{textoBusqueda}}</h4>
+            <img src="../assets/imagenes/no-hay-productos.png" />
+        </div>
+        
+    </div>
+</div>

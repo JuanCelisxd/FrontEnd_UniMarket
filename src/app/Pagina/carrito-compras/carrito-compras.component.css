@@ -1,0 +1,58 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+    color: #0E3F79;
+}
+
+.producto {
+    background-color: white;
+}
+
+.col-md-4,
+.col-md-8 {
+    margin-top: 2em;
+    margin-bottom: 2em;    
+}
+
+.icons-plus-minor {
+    margin-top: 0.5em;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+}
+
+.infouser {
+    color: #32B352;
+}
+
+.btn {
+    background-color: #32B352;
+    border-color: #32B352;
+    border-radius: 15px;
+    margin-top: 2em;
+    width: 400px;
+}
+
+.total-compra{
+    border-top: 3px solid #32B352;
+    border-bottom: 3px solid #32B352;
+    margin-top: 1em;
+    margin-bottom: 2em;
+    padding: 1em;
+    text-align: center;
+}
+
+.container-fluid {
+    padding-left: 2em;
+    padding-right: 2em;
+}
+
+.modal-header, .modal-footer{
+    border: none;
+}
+
+.modal-body{
+    text-align: center;
+}

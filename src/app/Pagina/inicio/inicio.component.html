@@ -1,121 +1,56 @@
-<body>
-    <div class="contenedor-input-search" >
-        <form (ngSubmit)="iraBusqueda(textobusqueda.value)" >
-            <div class="container-button">
-                <input #textobusqueda type="text" placeholder="Buscar">
-                <div class="btn-input">
-                    <i class="fa fa-search"></i>
-                </div>
+<div class="row justify-content-center">
+  <div class="busqueda">
+    <app-busqueda></app-busqueda>
+  </div>
+</div>
+
+<div class="row justify-content-center">
+  <div class="carousel justify-content-center">
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="row d-flex justify-content-center">
+            <div class="card" style="width: 18rem;" *ngFor="let item of categorias.slice(0,4)">
+              <img class="card-img-top" src={{item.url_imagen}} alt="Card image cap">
+              <div class="card-body">
+                <a href="#" class="btn btn-primary btn-lg">{{item.nombre}}</a>
+              </div>
             </div>
-        </form>
+          </div>
+        </div>
+        <div class="carousel-item ">
+          <div class="row d-flex justify-content-center">
+            <div class="card" style="width: 18rem;" *ngFor="let item of categorias.slice(5,9)">
+              <img class="card-img-top" src={{item.url_imagen}} alt="Card image cap">
+              <div class="card-body">
+                <a href="#" class="btn btn-primary btn-lg">{{item.nombre}}</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item ">
+          <div class="row d-flex justify-content-center">
+            <div class="card" style="width: 18rem;" *ngFor="let item of categorias.slice(9,categorias.length)">
+              <img class="card-img-top" src={{item.url_imagen}} alt="Card image cap">
+              <div class="card-body">
+                <a href="#" class="btn btn-primary btn-lg">{{item.nombre}}</a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </div>
 
-      <div class = "Galeria">
-        <section>
-          <div class = "Tecnologia">
-            <a class="nav-link active" aria-current="page" href="#">
-              <img src="../assets/imagenes/imagenesGaleria/Tecnologia.jpg" alt="">
-              <a class="btn-neon" href="#">
-                <h6>Tecnología</h6>
-              </a>
-
-            </a>
-           
-          </div>
-          <div class = "Deportes">
-            <a class="nav-link active" aria-current="page" href="#">
-              <img src="../assets/imagenes/imagenesGaleria/Bicicleta.jpg" alt="">
-              <a class="btn-neon" href="#">
-                <h6>Deportes</h6>
-              </a>
-            </a>
-            
-          </div>
-
-          <div class = "Hogar">
-            <a class="nav-link active" aria-current="page" href="#">
-              <img src="../assets/imagenes/imagenesGaleria/Hogar.jpg" alt="">
-              <a class="btn-neon" href="#">
-                <h6>Hogar</h6>
-              </a>
-            </a>
-            
-          </div>
-          <div class = "Juguetes">
-            <a class="nav-link active" aria-current="page" href="#">
-              <img class ="imagen_juguete" src="../assets/imagenes/imagenesGaleria/Juguete.jpg" alt="">
-              <a class="btn-neon" href="#">
-                <h6>Juguetes</h6>
-              </a>
-            </a>
-            
-          </div>     
-        </section>
-
-        <section class="Galeria2">
-          <div class = "Belleza">
-            <a class="nav-link active" aria-current="page" href="#">
-              <img class ="imagen_belleza" src="../assets/imagenes/imagenesGaleria/Belleza.jpg" alt="">
-              <a class="btn-neon" href="#">
-                <h6>Belleza</h6>
-              </a>
-            </a>
-            
-          </div>
-          <div class = "Moda">
-            <a class="nav-link active" aria-current="page" href="#">
-              <img class ="imagen_moda" src="../assets/imagenes/imagenesGaleria/Moda.jpg" alt="">
-              <a class="btn-neon" href="#">
-                <h6>Moda</h6>
-              </a>
-            </a>
-            
-          </div>
-          <div class = "Salud">
-            <a class="nav-link active" aria-current="page" href="#">
-              <img class ="imagen_salud" src="../assets/imagenes/imagenesGaleria/Salud.jpg" alt="">
-              <a class="btn-neon" href="#">
-                <h6>Salud</h6>
-              </a>
-            </a>
-            
-          </div>
-          <div class = "Consolas">
-            <a class="nav-link active" aria-current="page" href="#">
-              <img class ="imagen_consola" src="../assets/imagenes/imagenesGaleria/Consolas.jpg" alt="">
-              <a class="btn-neon" href="#">
-                <h6>Consolas</h6>
-              </a>
-            </a>  
-          </div>
-        </section>
-
-        <section class = "Galeria3">
-          <div class = "Instrumentos">
-            <a class="nav-link active" aria-current="page" href="#">
-              <img class ="imagen_instrumentos" src="../assets/imagenes/imagenesGaleria/Instrumentos.jpg" alt="">
-              <a class="btn-neon" href="#">
-                <h6>Instrumentos</h6>
-              </a>
-            </a>
-            
-          </div>
-
-          <div class = "Vehiculos">
-            <a class="nav-link active" aria-current="page" href="#">
-              <img class ="imagen_vehiculo" src="../assets/imagenes/imagenesGaleria/Vehiculos.jpg" alt="">
-              <a class="btn-neon" href="#">
-                <h6>Vehiculos</h6>
-              </a>
-            </a>
-            
-          </div>
-        </section>
-        
-      </div>
-    
-</body>
-
-
-
-<p>inicio works!</p>
+  <div class="galeria d-flex justify-content-center">
+    <button type="button" class="btn btn-primary btn-lg">Quiero Publicar</button>
+  </div>
+</div>

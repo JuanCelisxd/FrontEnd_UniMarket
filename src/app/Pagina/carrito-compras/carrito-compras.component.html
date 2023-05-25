@@ -1,55 +1,75 @@
-<div class="card p-5">
-    <form #f="ngForm" *ngIf="productos.length > 0" >
-    <div class="table-responsive text-center">
-    <table class="table table-hover" >
-    <thead>
-    <tr>
-    <th></th>
-    <th style="width: 40%;" >Producto</th>
-    <th style="width: 20%;" >Precio</th>
-    <th style="width: 20%;" >Unidades</th>
-    <th style="width: 20%;" >Subtotal</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let item of productos">
-    <td></td>
-    <td>
-    <div class="d-flex text-start align-items-center" >
-    <div class="col-4 me-3 ms-3" >
-    <img [src]="item.producto.imagen" width="100%" />
+<div class="carrito-compras">
+    <div class="container-fluid">
+        <div *ngIf="productos.length > 0" class="row">
+            <div class="col-md-8">
+                <div class="row mb-2" *ngFor="let item of productos">
+                    <div class="row  border rounded overflow-hidden  producto">
+                        <div class="col-auto">
+                            <img src={{item.producto.imagen}} width="200" height="250" />
+                        </div>
+                        <div class="col p-4 d-flex flex-column position-static">
+                            <a [routerLink]="" (click)="eliminarItem(item)"><i
+                                    class="fa-solid fa-trash-can fa-xl d-flex justify-content-end"
+                                    style="color: #0E3F79;"></i></a>
+                            <h3 class="mb-0">{{item.producto.nombre}}</h3> <br>
+                            <p class="card-text infouser"> <i class="fa-solid fa-circle-user fa-lg"></i>
+                                @NataliaGiraldo </p>
+                            <p>{{item.producto.descripcion}}</p>
+                            <h2 class="mb-0">$ {{item.producto.precio}} COP</h2><br>
+                            <div class="stars">
+                                <i class="fa-solid fa-star fa-xl"
+                                    *ngFor="let item of [].constructor(5); index as i"></i>
+                            </div><br>
+                            <div class="d-flex justify-content-end">
+                                <h5><b>Cantidad</b></h5>
+                                <a [routerLink]="" (click)="disminuirCantidad(item)"><i
+                                        class="fa-solid fa-circle-minus fa-xl icons-plus-minor"
+                                        style="color: #BA2C12;"></i></a>
+                                <h5><b>{{item.cantidad}}</b></h5>
+                                <a [routerLink]="" (click)="aumentarCantidad(item)"><i
+                                        class="fa-solid fa-circle-plus fa-xl icons-plus-minor"
+                                        style="color: #32B352;"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" style="text-align: center;">
+                <div class="total-compra">
+                    <h5><b>Total Compra $ {{valorTotal | currency: 'COP'}}</b></h5>
+                </div>
+                <h3><b>Método de pago</b></h3>
+                <button type="button" class="btn btn-primary btn-lg" (click)="realizarCompra()">Pagar</button><br>
+            </div>
+        </div>
+
+        <div *ngIf="productos.length == 0" class="row" style="text-align: center;">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <h3>No hay productos en el carrito aún</h3>
+                <img src="../assets/imagenes/no-hay-productos.png" />
+            </div>
+        </div>
     </div>
-    <span class="col-8" >{{item.producto.nombre}}</span>
+
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalPagoExitoso" #btnModalPagoExitoso [hidden]="true">
+        Este botón lanza el modal, se ejecuta al momento de realizar el pago 
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalPagoExitoso" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">                    
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="../assets/imagenes/pago-exitoso.png" height="200" width="200"><br><br>
+                    <h2>¡Pago exitoso!</h2>
+                </div>
+                <div class="modal-footer">                   
+                </div>
+            </div>
+        </div>
     </div>
-    </td>
-    <td class="align-middle" >
-    <span>$ {{item.producto.precio}}</span>
-    </td>
-    <td class="align-middle" >
-    
-    <input type="number" name="unidades" class="form-control
-    
-    text-center" [(ngModel)]="item.producto.unidades" min="0" />
-    
-    </td>
-    <td class="align-middle" >
-    <span>$ CALCULAR VALOR (Mutiplicar precio por unidades)</span>
-    </td>
-    </tr>
-    </tbody>
-    </table>
-</div>
-<div class="mt-5 d-flex justify-content-end" >
-    <div class="text-end" >
-        <h4 >Valor a pagar: ${{valorTotal}}</h4>
-        <button class="btn btn-primary" ><i class="fa-regular fa-credit-card"></i>
-        Comprar</button>
-    </div>
-</div>
-</form>
-<div *ngIf="productos.length == 0" class="alert alert-warning d-flex align-items-center"
-role="alert">
-<i class="fa-solid fa-triangle-exclamation"></i><span class="ms-3">No hay elementos en
-el carrito</span>
-</div>
 </div>

@@ -1,0 +1,36 @@
+.detalle-producto {
+    background-color: white;
+    margin-bottom: 5em;
+}
+
+h1,
+h2,
+h3,
+p {
+    color: #0E3F79;
+}
+
+.infouser{
+    color: #32B352;
+}
+
+.btn {
+    background-color: #32B352;
+    border-color: #32B352;
+    border-radius: 15px;    
+}
+
+.btn-favorito {
+    background-color: #0E3F79;
+    border-color: #0E3F79;
+    border-radius: 15px;    
+}
+
+.col-md-6{
+    text-align: center;
+}
+
+.detalle-acciones{
+    margin-top: 2em;
+    margin-bottom: 2em;
+}

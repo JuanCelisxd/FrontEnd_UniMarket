@@ -19,29 +19,33 @@ import { PublicarProductoComponent } from './Pagina/publicar-producto/publicar-p
 import { RealizarPagoComponent } from './Pagina/realizar-pago/realizar-pago.component';
 import { SubastaComponent } from './Pagina/subasta/subasta.component';
 import { VerProductoComponent } from './Pagina/ver-producto/ver-producto.component';
+import { DetalleProductoComponent } from './Pagina/detalle-producto/detalle-producto.component';
 
 const routes: Routes = [
-  {path : "", component: InicioComponent},
-  {path : "login", component: LoginComponent},
-  {path : "registro", component: RegistroComponent},
-  {path: "crear-producto", component: CrearProductoComponent},
-  {path: "actualizar-datos", component: ActualizarDatosComponent},
-  {path: "aprobar-productos-moderador", component: AprobarProductosModeradorComponent},
-  {path: "busqueda", component: BusquedaComponent },
-  {path: "busqueda/:texto", component: BusquedaComponent},
-  {path: "carrito-compras", component: CarritoComprasComponent},
-  {path: "confirma-subasta", component: ConfirmaSubastaComponent},
-  {path: "index-moderador", component: IndexModeradorComponent},
-  {path: "index-usuario", component: IndexUsuarioComponent},
-  {path: "listar-compras", component: ListarComprasComponent},
-  {path: "listar-favoritos", component: ListarFavoritosComponent},
-  {path: "listar-productos-moderador", component: ListarProductosModeradorComponent},
-  {path: "publicar-producto", component: PublicarProductoComponent},
-  {path: "realizar-pago", component: RealizarPagoComponent},
-  {path: "subasta", component: SubastaComponent},
-  {path: "ver-producto", component: VerProductoComponent},
-  {path : "**", pathMatch: "full", redirectTo: ""},
-  
+  { path: "", component: InicioComponent },
+  { path: "login", component: LoginComponent },
+  { path: "registro", component: RegistroComponent },
+  { path: "crear-producto", component: CrearProductoComponent },
+  { path: "actualizar-datos", component: ActualizarDatosComponent },
+  { path: "aprobar-productos-moderador", component: AprobarProductosModeradorComponent },
+  { path: "busqueda", component: BusquedaComponent },
+  { path: "busqueda/:texto", component: BusquedaComponent },
+  { path: "carrito-compras", component: CarritoComprasComponent },
+  { path: "confirma-subasta", component: ConfirmaSubastaComponent },
+  { path: "index-moderador", component: IndexModeradorComponent },
+  { path: "index-usuario", component: IndexUsuarioComponent },
+  { path: "listar-compras", component: ListarComprasComponent },
+  { path: "listar-favoritos", component: ListarFavoritosComponent },
+  { path: "listar-productos-moderador", component: ListarProductosModeradorComponent },
+  { path: "publicar-producto", component: PublicarProductoComponent },
+  { path: "realizar-pago", component: RealizarPagoComponent },
+  { path: "subasta", component: SubastaComponent },
+  { path: "ver-producto", component: VerProductoComponent },
+  { path: "buscar-producto", component: BuscarProductoComponent },
+  { path: "buscar-producto/:texto", component: BuscarProductoComponent },
+  { path: "detalle-producto/:id", component: DetalleProductoComponent },
+  { path: "**", pathMatch: "full", redirectTo: "" },
+
 ];
 
 @NgModule({

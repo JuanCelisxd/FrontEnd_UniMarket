@@ -1,0 +1,40 @@
+h1,
+h2,
+h3,
+h3,
+h5,
+label,
+p {
+    color: #32B352;
+}
+
+.col-md-4, .col-md-8{
+   margin-top: 2em;
+   margin-bottom: 2em;
+}
+
+::placeholder{
+    color: #32B352;
+}
+
+.btn {
+    background-color: #32B352;
+    border-color: #32B352;
+    border-radius: 15px;    
+}
+
+.form-group{
+    margin-bottom: 1em;
+}
+
+input{
+    border-radius: 15px;
+}
+
+select, option {
+    color: #32B352;
+}
+
+p{
+    font-size: 18px;
+}
