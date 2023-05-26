@@ -27,13 +27,13 @@ export class BusquedaComponent {
       console.log(this.textoBusqueda);
     })
   }
-  // public iraBusqueda(valor: string) {
-  //   if (valor) {
-  //     this.router.navigate(["/buscar-producto", valor]);
-  //   }else{
-  //     this.router.navigate(["/buscar-producto"]);
-  //   }
-  // }
+  public iraBusqueda(valor: string) {
+    if (valor) {
+      this.router.navigate(["/buscar-producto", valor]);
+    }else{
+      this.router.navigate(["/buscar-producto"]);
+    }
+  }
 
 
  

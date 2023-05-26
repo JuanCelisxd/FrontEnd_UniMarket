@@ -1,12 +1,12 @@
 <div class="contenedor-input-search">
-    <!-- <form (ngSubmit)="iraBusqueda(textobusquedaInput.value)"> -->
+    <form (ngSubmit)="iraBusqueda(textobusquedaInput.value)">
         <div class="container-button">
             <input #textobusquedaInput type="text" placeholder="Buscar">
             <div class="btn-input">
                 <i class="fa fa-search"></i>
             </div>
         </div>
-    <!-- </form> -->
+    </form>
 </div>
 
 <p>Resultados de búsqueda para "{{textoBusqueda}}"</p>
