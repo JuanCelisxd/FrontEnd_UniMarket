@@ -1,0 +1,23 @@
+.btn-aprobar{
+    margin-top: 10px;
+    margin-right: 10px;
+    background-color: rgb(106, 170, 10);
+    border-color: rgb(106, 170, 10);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.btn-aprobar:hover{
+    background-color: #45a049;
+}
+.btn-no-aprobar{
+    margin-top: 10px;
+    background-color: salmon;
+    border-color: salmon;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.btn-no-aprobar:hover{
+    background-color:  #f82a13;
+}
