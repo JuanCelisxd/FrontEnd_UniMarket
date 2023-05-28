@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Alerta } from 'src/app/modelo/alerta';
 import { UsuarioDTO } from 'src/app/modelo/usuario-dto';
 import { AuthService } from 'src/app/servicios/auth.service';
 
@@ -9,6 +10,7 @@ import { AuthService } from 'src/app/servicios/auth.service';
 })
 export class RegistroComponent {
   usuario: UsuarioDTO;
+  alerta!: Alerta;
 
   constructor(private authService: AuthService) {
     this.usuario = new UsuarioDTO();
@@ -17,16 +19,18 @@ export class RegistroComponent {
   public registrar() {
 
     console.log(this.usuario);
-    
+    const objeto = this;
+
     this.authService.registrar(this.usuario).subscribe({
       next: data => {
-        console.log(data);
+        objeto.alerta = new Alerta(data.response, "success");
       },
       error: error => {
-        console.log(error);
+        objeto.alerta = new Alerta(error.response, "danger");
       }
-    })
+    });
   }
+
   public sonIguales(): boolean {
     return this.usuario.password == this.usuario.confirmaPassword;
   }

@@ -26,6 +26,7 @@ import { OverviewLogeadoComponent } from './Pagina/overview-logeado/overview-log
 import { DetalleProductoComponent } from './Pagina/detalle-producto/detalle-producto.component';
 import { AtrasComponent } from './Pagina/atras/atras.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AlertaComponent } from './Pagina/alerta/alerta.component';
 
 
 @NgModule({
@@ -53,6 +54,7 @@ import { HttpClientModule } from '@angular/common/http';
     OverviewLogeadoComponent,
     DetalleProductoComponent,
     AtrasComponent,
+    AlertaComponent,
   ],
   imports: [
     BrowserModule,

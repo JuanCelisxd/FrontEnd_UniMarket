@@ -11,10 +11,21 @@ import { CategoriaService } from 'src/app/servicios/categoria.service';
 
 export class InicioComponent {
 
-  categorias: CategoriaDTO[];
+  categorias: any;
 
-  constructor(private router: Router, private categoriaService: CategoriaService) {
-    this.categorias = categoriaService.listar();
+  constructor(private categoriaService: CategoriaService) {
+    this.cargarCategorias();
   }
-  
+
+  private cargarCategorias() {
+    this.categoriaService.listar().subscribe({
+      next: data => {
+        this.categorias = data.response;
+      },
+      error: error => {
+        console.log(error.response)
+      }
+    });
+  }
+
 }
