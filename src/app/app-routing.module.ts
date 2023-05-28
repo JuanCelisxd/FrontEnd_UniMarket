@@ -20,6 +20,7 @@ import { RealizarPagoComponent } from './Pagina/realizar-pago/realizar-pago.comp
 import { SubastaComponent } from './Pagina/subasta/subasta.component';
 import { VerProductoComponent } from './Pagina/ver-producto/ver-producto.component';
 import { DetalleProductoComponent } from './Pagina/detalle-producto/detalle-producto.component';
+import { GestionProductosComponent } from './Pagina/gestion-productos/gestion-productos.component';
 
 const routes: Routes = [
   { path: "", component: InicioComponent },
@@ -44,6 +45,7 @@ const routes: Routes = [
   { path: "buscar-producto", component: BuscarProductoComponent },
   { path: "buscar-producto/:texto", component: BuscarProductoComponent },
   { path: "detalle-producto/:id", component: DetalleProductoComponent },
+  {path: "gestion-productos", component: GestionProductosComponent},
   { path: "**", pathMatch: "full", redirectTo: "" },
 
 ];
