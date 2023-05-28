@@ -27,6 +27,7 @@ import { DetalleProductoComponent } from './Pagina/detalle-producto/detalle-prod
 import { AtrasComponent } from './Pagina/atras/atras.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AlertaComponent } from './Pagina/alerta/alerta.component';
+import { GestionProductosComponent } from './Pagina/gestion-productos/gestion-productos.component';
 
 
 @NgModule({
@@ -55,6 +56,7 @@ import { AlertaComponent } from './Pagina/alerta/alerta.component';
     DetalleProductoComponent,
     AtrasComponent,
     AlertaComponent,
+    GestionProductosComponent,
   ],
   imports: [
     BrowserModule,
