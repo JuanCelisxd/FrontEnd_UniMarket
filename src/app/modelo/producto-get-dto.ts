@@ -1,6 +1,6 @@
 export class ProductoGetDTO {
 
-    codigo: number=0;
+    idProducto: number=0;
     nombre: string = "";
     descripcion: string = "";
     precio: number = 0;
@@ -9,9 +9,9 @@ export class ProductoGetDTO {
     categoria: string[] = [];
 
 
-    constructor(codigo: number, nombre: string, descripcion: string, precio: number, unidades: number, imagen: string[], categoria: string[]){
+    constructor(idProducto: number, nombre: string, descripcion: string, precio: number, unidades: number, imagen: string[], categoria: string[]){
     
-        this.codigo = codigo;
+        this.idProducto = idProducto;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.precio = precio;

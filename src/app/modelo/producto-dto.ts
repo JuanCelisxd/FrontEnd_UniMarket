@@ -1,8 +1,10 @@
 export class ProductoDTO {
     nombre: string = "";
+    unidades: number = 0;
     descripcion: string = "";
     precio: number = 0;
-    unidades: number = 0;
-    imagen: string[] = [];
-    categoria: string[] = [];
+    imagenes: any;
+    fechaLimite: Date = new Date();
+    idUsuario: number = 0;
+    categoriasList: string[] = [];
 }

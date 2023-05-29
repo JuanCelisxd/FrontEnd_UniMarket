@@ -1,9 +1,24 @@
-form{
+form {
     padding: 20px;
     box-sizing: border-box;
-    border: 2px solid green;
+    border: 2px solid #32B352;
     border-radius: 10px;
     color: white;
     background-color: rgb(7, 44, 145);
+    border-color: rgb(7, 44, 145);
     margin: 20px 20px;
+}
+
+.btn-login {
+    background-color: #32B352;
+    border-color: #32B352;
+}
+
+a {
+    color: white;
+}
+
+.col {
+    margin-top: 3em;
+    margin-bottom: 3em;
 }

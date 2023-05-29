@@ -3,17 +3,17 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8">
-                <img src={{producto?.imagen}} width="450" height="400" />
+                <img src={{producto.imagen}} width="450" height="400" />
             </div>
             <div class="col-md-4">
-                <h3 class="mb-0">{{producto?.nombre}}</h3> <br>
+                <h3 class="mb-0">{{producto.nombre}}</h3> <br>
                 <p class="card-text infouser"> <i class="fa-solid fa-circle-user fa-lg"></i> @NataliaGiraldo </p>
-                <h2 class="mb-0">$ {{producto?.precio}} COP</h2><br>
+                <h2 class="mb-0">$ {{producto.precio}} COP</h2><br>
                 <div class="stars">
                     <i class="fa-solid fa-star fa-xl" *ngFor="let item of [].constructor(5); index as i"></i>
                 </div><br>
                 <p><b>Descripción:</b></p>
-                <p>{{producto?.descripcion}}</p>
+                <p>{{producto.descripcion}}</p>
             </div>
         </div>
         <div class="row detalle-acciones">

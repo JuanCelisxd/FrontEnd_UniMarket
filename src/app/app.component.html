@@ -1,5 +1,5 @@
 <header>
-  <nav id="header" class="navbar navbar-expand-lg">
+  <nav *ngIf="isLogged" id="header" class="navbar navbar-expand-lg">
     <div class="container-fluid">
       <a class="navbar-brand" routerLink="">
         <img src="../assets/imagenes/logo.png" alt="Unimarkert logo" width="200" height="80">
@@ -15,8 +15,8 @@
                 alt="" width="50" height="30"></a>
           </li>
           <li class="nav-item">
-            <a routerLink="/carrito-compras" class="nav-link active" aria-current="page"><img src="../assets/imagenes/carrito.png" alt=""
-                width="50" height="30"></a>
+            <a routerLink="/carrito-compras" class="nav-link active" aria-current="page"><img
+                src="../assets/imagenes/carrito.png" alt="" width="50" height="30"></a>
           </li>
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="#"><img src="../assets/imagenes/compras.png" alt=""
@@ -34,43 +34,58 @@
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               <img src="../assets/imagenes/perfil.png" alt="" width="50" height="30">
             </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">                         
               <li><a routerLink="/actualizar-datos" class="dropdown-item" href="#">Actualizar Datos</a></li>
               <li>
                 <hr class="dropdown-divider">
               </li>
-              <li><a class="dropdown-item" href="#">Cerrar Sesión</a></li>
+              <li><a class="dropdown-item" routerLink="" (click)="logout()">Cerrar Sesión</a></li>
             </ul>
           </li>
-        </ul>                      
+        </ul>
       </div>
     </div>
   </nav>
 
+  <!--<div *ngIf="!isLogged; then nologged else logged"></div>
+  <ng-template #nologged>
+    <div class="text-end">
+      <button type="button" routerLink="/login" class="btn btn-outline-lightme-2">Login</button>
+      <button type="button" routerLink="/registro" class="btn btn-warning">Sign-up</button>
+    </div>
+  </ng-template>
+  <ng-template #logged>
+    <div class="text-end">
+      <label class="me-3">Hola {{email}}</label>
+      <button type="button" (click)="logout()" class="btn btn-warning">Logout</button>
+    </div>
+  </ng-template>-->
+
 </header>
 
-    <body>          
-      <router-outlet></router-outlet>
-    </body>
+<body>
+  <div class="d-flex justify-content-end"><i>Estás loggeado como: {{email}}</i></div>
+  <router-outlet></router-outlet>
+</body>
 
-  <footer id="footer">
-    
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          <p>Universidad del Quindio - 2023</p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          <p>Michael Aguirre</p>
-        </div>
-        <div class="col">
-          <p>Juan Carlos Celis</p>
-        </div>
-        <div class="col">
-          <p>Ligia Murillo</p>
-        </div>
+<footer id="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col">    
+        <img src="assets/imagenes/uniquindio.png" width="120" height="150">   
+        <p style="margin-top: 1em;">Universidad del Quindio - 2023</p>
       </div>
     </div>
-  </footer>
+    <div class="row">
+      <div class="col">
+        <p>Michael Aguirre</p>
+      </div>
+      <div class="col">
+        <p>Juan Carlos Celis</p>
+      </div>
+      <div class="col">
+        <p>Ligia Murillo</p>
+      </div>
+    </div>
+  </div>
+</footer>

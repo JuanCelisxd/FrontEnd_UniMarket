@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { CategoriaDTO } from 'src/app/modelo/categorias-dto';
 import { CategoriaService } from 'src/app/servicios/categoria.service';
 
 @Component({

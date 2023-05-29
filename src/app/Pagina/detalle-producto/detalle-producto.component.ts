@@ -14,14 +14,24 @@ import { ProductoService } from 'src/app/servicios/producto.service';
 export class DetalleProductoComponent {
 
   codigoProducto: number;
-  producto: ProductoGetDTO | undefined;
+  producto: ProductoGetDTO;
   productosAprobados: ProductoModeradorDto | undefined;
 
   constructor(private route: ActivatedRoute, private carritoService: CarritoService, private productoService: ProductoService, private productoAp: ProductoEstadosService) {
     this.codigoProducto = 0;
+    this.producto = new ProductoGetDTO(0, '', '', 0, 0, [], []);
+
     this.route.params.subscribe(params => {
       this.codigoProducto = params['id'];
-      this.producto = this.productoService.obtener(this.codigoProducto);      
+      this.productoService.obtener(this.codigoProducto).subscribe({
+        next: data => {
+          this.producto = <ProductoGetDTO>data.response;
+        },
+        error: error => {
+          console.error(error.response)
+        }
+      });
+
       this.productosAprobados = this.productoAp.obtener(this.codigoProducto);
 
     })

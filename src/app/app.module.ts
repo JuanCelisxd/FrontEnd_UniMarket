@@ -25,9 +25,11 @@ import { VerProductoComponent } from './Pagina/ver-producto/ver-producto.compone
 import { OverviewLogeadoComponent } from './Pagina/overview-logeado/overview-logeado.component';
 import { DetalleProductoComponent } from './Pagina/detalle-producto/detalle-producto.component';
 import { AtrasComponent } from './Pagina/atras/atras.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AlertaComponent } from './Pagina/alerta/alerta.component';
 import { GestionProductosComponent } from './Pagina/gestion-productos/gestion-productos.component';
+import { RevisarProductosComponent } from './Pagina/revisar-productos/revisar-productos.component';
+import { UsuarioInterceptor } from './interceptor/usuario.interceptor';
 
 
 @NgModule({
@@ -57,6 +59,7 @@ import { GestionProductosComponent } from './Pagina/gestion-productos/gestion-pr
     AtrasComponent,
     AlertaComponent,
     GestionProductosComponent,
+    RevisarProductosComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,7 +67,9 @@ import { GestionProductosComponent } from './Pagina/gestion-productos/gestion-pr
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: UsuarioInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

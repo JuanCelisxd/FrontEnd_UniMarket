@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
+import { Alerta } from 'src/app/modelo/alerta';
 import { ProductoDTO } from 'src/app/modelo/producto-dto';
+import { CategoriaService } from 'src/app/servicios/categoria.service';
+import { ImagenService } from 'src/app/servicios/imagen.service';
+import { ProductoService } from 'src/app/servicios/producto.service';
 
 @Component({
   selector: 'app-crear-producto',
@@ -7,36 +11,82 @@ import { ProductoDTO } from 'src/app/modelo/producto-dto';
   styleUrls: ['./crear-producto.component.css']
 })
 export class CrearProductoComponent {
-  //Atributos
+
   categorias: string[];
   productoDTO: ProductoDTO;
   archivos!: FileList;
-  //Constructor
-  constructor() {
+  alerta!: Alerta;
+  categoria: string = "";
+
+  constructor(private imagenService: ImagenService, private productoService: ProductoService, private categoriaService: CategoriaService) {
     this.categorias = [];
     this.productoDTO = new ProductoDTO();
   }
 
-  //Funciones
+  ngOnInit(): void {
+    this.categoriaService.listar().subscribe({
+      next: data => {
+        this.categorias = data.response;
+      },
+      error: error => {
+        console.log(error.response);
+      }
+    });
+
+  }
+
   public crearProducto() {
-    if (this.archivos != null && this.archivos.length > 0) {
-      console.log(this.productoDTO);
+    const objeto = this;
+    this.productoDTO.idUsuario = 1;
+    this.productoDTO.categoriasList.push(this.categoria);
+    console.log(this.productoDTO);
+
+    if (this.productoDTO.imagenes != null) {
+      this.productoService.crear(this.productoDTO).subscribe({
+        next: data => {
+          objeto.alerta = new Alerta(data.response, "success");          
+        },
+        error: error => {        
+          objeto.alerta = new Alerta(error.error.response, "danger");
+        }
+      });
     } else {
-      console.log('Debe seleccionar al menos una imagen');
+      objeto.alerta = new Alerta('Debe seleccionar al menos una imagen y subirla', "danger");
     }
   }
-  ngOnInit(): void {
-    this.categorias.push('Tecnología');
-    this.categorias.push('Hogar');
-    this.categorias.push('Deportes');
-    this.categorias.push('Moda');
-    this.categorias.push('Mascotas');
-  }
+
   onFileChange(event: any) {
     if (event.target.files.length > 0) {
       this.archivos = event.target.files;
     }
   }
 
+  public subirImagenes() {
+    if (this.archivos != null && this.archivos.length > 0) {
 
+      const objetoProducto = this.productoDTO;
+      const objeto = this;
+
+      const formData = new FormData();
+      formData.append('file', this.archivos[0]);
+
+      let mapImagenes = new Map<string, string>();
+      let mapJson = {};      
+
+      this.imagenService.subir(formData).subscribe({
+        next: data => {
+          mapImagenes.set(this.archivos[0].name, data.response.url);
+          mapJson = Object.fromEntries(mapImagenes);
+          objetoProducto.imagenes = mapJson;
+          objeto.alerta = new Alerta('Imagen subida con éxito', "success");
+        },
+        error: error => {
+          console.log(error.response);
+          objeto.alerta = new Alerta("Error al subir imagen: " + error.response, "danger");
+        }
+      });
+    } else {
+      console.log('Debe seleccionar al menos una imagen y subirla');
+    }
+  }
 }

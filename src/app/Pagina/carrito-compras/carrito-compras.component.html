@@ -5,7 +5,7 @@
                 <div class="row mb-2" *ngFor="let item of productos">
                     <div class="row  border rounded overflow-hidden  producto">
                         <div class="col-auto">
-                            <img src={{item.producto.imagen}} width="200" height="250" />
+                            <img src={{item.producto.imagenes}} width="200" height="250" />
                         </div>
                         <div class="col p-4 d-flex flex-column position-static">
                             <a [routerLink]="" (click)="eliminarItem(item)"><i

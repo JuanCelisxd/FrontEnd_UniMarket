@@ -1,60 +1,70 @@
 <div class="card p-5">
 
     <h3>Formulario Crear Producto</h3>
-    <form #f="ngForm" (ngSubmit)="crearProducto()">
+    <form #f="ngForm">
         <div class="mb-3 row">
             <label class="col-sm-2 col-form-label">Nombre: </label>
             <div class="col-sm-10">
                 <input #nombre="ngModel" class="form-control" [ngClass]="nombre.invalid &&
-                (nombre.dirty || nombre.touched) ? 'is-invalid' : ''" type="text" name="nombre" [(ngModel)]="productoDTO.nombre" required />
+                (nombre.dirty || nombre.touched) ? 'is-invalid' : ''" type="text" name="nombre"
+                    [(ngModel)]="productoDTO.nombre" required />
             </div>
-            
+
         </div>
         <div class="mb-3 row">
             <label class="col-sm-2 col-form-label">Descripcion: </label>
             <div class="col-sm-10">
                 <textarea #descripcion="ngModel" class="form-control" [ngClass]="descripcion.invalid &&
-                (descripcion.dirty || descripcion.touched) ? 'is-invalid' : ''" name="descripcion" [(ngModel)]="productoDTO.descripcion" required minlength="20"></textarea>
+                (descripcion.dirty || descripcion.touched) ? 'is-invalid' : ''" name="descripcion"
+                    [(ngModel)]="productoDTO.descripcion" required minlength="20" maxlength="100"></textarea>
             </div>
-            
+
         </div>
         <div class="mb-3 row">
             <label class="col-sm-2 col-form-label">Precio: </label>
             <div class="col-sm-10">
                 <input #precio="ngModel" class="form-control" [ngClass]="precio.invalid &&
-                (precio.value <=0 || precio.touched) ? 'is-invalid' : ''" type="number" name="precio" [(ngModel)]="productoDTO.precio" required />
+                (precio.value <=0 || precio.touched) ? 'is-invalid' : ''" type="number" name="precio"
+                    [(ngModel)]="productoDTO.precio" required />
             </div>
-            
+
         </div>
         <div class="mb-3 row">
             <label class="col-sm-2 col-form-label">Unidades: </label>
             <div class="col-sm-10">
                 <input #unidades="ngModel" class="form-control" [ngClass]="unidades.invalid &&
-                (unidades.value <=0 || unidades.touched) ? 'is-invalid' : ''" type="number" name="unidades" [(ngModel)]="productoDTO.unidades" required />
+                (unidades.value <=0 || unidades.touched) ? 'is-invalid' : ''" type="number" name="unidades"
+                    [(ngModel)]="productoDTO.unidades" required />
             </div>
-           
+
         </div>
         <div class="mb-3 row">
             <label class="col-sm-2 col-form-label">Imagen: </label>
             <div class="col-sm-10">
                 <input class="form-control" type="file" name="imagenes" (change)="onFileChange($event)" multiple />
             </div>
-            
         </div>
+        <div class="mb-3 row">
+            <div class="col-sm-3">
+                <button type="submit" [disabled]="archivos == null" class="btn btn-primary" (click)="subirImagenes()">
+                    <i class="fa-solid fa-cloud-arrow-up me-2"></i>Subir imágenes
+                </button>
+            </div>
+        </div>
+
         <div class="mb-3 row">
             <label class="col-sm-2 col-form-label">Categoría: </label>
             <div class="col-sm-10">
-                <select class="form-control" name="categoria" [(ngModel)]="productoDTO.categoria" required>
+                <select class="form-control" name="categoria" [(ngModel)]="categoria" required>
                     <option value="" selected>Seleccione una categoría</option>
-                    <option [value]="i+1" *ngFor="let item of categorias; index as i">{{item}}</option>
+                    <option [value]="item" *ngFor="let item of categorias;">{{item}}</option>
                 </select>
-
             </div>
-           
         </div>
-        <button type="submit" [disabled]="f.invalid"  class="btn btn-primary">Crear nuevo producto</button>
+        <button type="submit" [disabled]="f.invalid" class="btn btn-primary" (click)="crearProducto()">Crear nuevo
+            producto
+        </button>
+        <app-alerta [alerta]="alerta"></app-alerta>
     </form>
 
 </div>
-
-

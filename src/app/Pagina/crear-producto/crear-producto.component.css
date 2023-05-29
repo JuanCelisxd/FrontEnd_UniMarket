@@ -5,6 +5,7 @@ form{
     border-radius: 10px;
     color: white;
     background-color: rgb(7, 44, 145);
+    border-color: rgb(7, 44, 145);;
     margin: 20px 20px;
 }
 

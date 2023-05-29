@@ -1,10 +1,10 @@
 <div class="buscar-producto">
-    <app-atras></app-atras>
+    <!--<app-atras></app-atras>
     <div class="row justify-content-center">
         <div class="busqueda">
             <app-busqueda></app-busqueda>
         </div>        
-    </div>
+    </div>-->
 
     <div *ngIf="filtro.length > 0" class="row mb-2">
         <div *ngFor="let item of filtro" class="col-md-6">
@@ -20,7 +20,7 @@
                     <div class="stars">
                         <i class="fa-solid fa-star fa-xl" *ngFor="let item of [].constructor(5); index as i"></i>
                     </div><br>
-                    <button type="button" class="btn btn-primary btn" (click)="verDetalleProducto(item.codigo)">Ver detalle</button>                    
+                    <button type="button" class="btn btn-primary btn" (click)="verDetalleProducto(item.idProducto)">Ver detalle</button>                    
                 </div>
             </div>
         </div>
