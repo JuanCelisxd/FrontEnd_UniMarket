@@ -1,4 +1,5 @@
 export class UsuarioDTO {
+    idUsuario : number = 0;
     nombre: string = "";
     email: string = "";
     cedula: string = "";

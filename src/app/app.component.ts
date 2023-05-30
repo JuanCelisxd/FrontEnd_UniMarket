@@ -12,9 +12,13 @@ export class AppComponent {
   title = 'UniMarket';
   isLogged = false;
   email: string = "";
+  isAdmin: boolean = false;
 
   constructor(private tokenService: TokenService, private sesionService: SesionService, private router: Router) {
-
+    const role = this.tokenService.getRole();
+    if (role[0] == 'MODERADOR') {
+      this.isAdmin = true;
+    }
   }
 
   ngOnInit(): void {

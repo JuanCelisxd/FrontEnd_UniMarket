@@ -5,6 +5,7 @@ import { ProductoModeradorDto } from 'src/app/modelo/producto-moderador-dto';
 import { CarritoService } from 'src/app/servicios/carrito.service';
 import { ProductoEstadosService } from 'src/app/servicios/producto-estados.service';
 import { ProductoService } from 'src/app/servicios/producto.service';
+import { Alerta } from 'src/app/modelo/alerta';
 
 @Component({
   selector: 'app-detalle-producto',
@@ -16,6 +17,7 @@ export class DetalleProductoComponent {
   codigoProducto: number;
   producto: ProductoGetDTO;
   productosAprobados: ProductoModeradorDto | undefined;
+  alerta!: Alerta;
 
   constructor(private route: ActivatedRoute, private carritoService: CarritoService, private productoService: ProductoService, private productoAp: ProductoEstadosService) {
     this.codigoProducto = 0;
@@ -38,9 +40,9 @@ export class DetalleProductoComponent {
 
   }
   public agregarCarrito() {
-    console.log(this.codigoProducto);
+    const objeto = this;
     this.carritoService.agregar(this.codigoProducto);
-    console.log(this.carritoService.listar());
+    objeto.alerta = new Alerta("Producto agregado con éxito", "success");
   }
 
 

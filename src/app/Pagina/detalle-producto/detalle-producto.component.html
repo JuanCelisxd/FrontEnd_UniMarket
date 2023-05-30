@@ -2,12 +2,13 @@
     <app-atras></app-atras>
     <div class="container">
         <div class="row">
-            <div class="col-md-8">
-                <img src={{producto.imagen}} width="450" height="400" />
+            <div class="col-md-8" *ngFor="let imagen of producto.imagenes | keyvalue">
+                <img src={{imagen.value}} width="450" height="400" />
             </div>
             <div class="col-md-4">
                 <h3 class="mb-0">{{producto.nombre}}</h3> <br>
-                <p class="card-text infouser"> <i class="fa-solid fa-circle-user fa-lg"></i> @NataliaGiraldo </p>
+                <p class="card-text infouser"> <i class="fa-solid fa-circle-user fa-lg"></i>
+                    @{{producto.usuarioCreacion}} </p>
                 <h2 class="mb-0">$ {{producto.precio}} COP</h2><br>
                 <div class="stars">
                     <i class="fa-solid fa-star fa-xl" *ngFor="let item of [].constructor(5); index as i"></i>
@@ -25,16 +26,20 @@
                 <button (click)="agregarCarrito()" class="btn btn-primary btn-lg"><i class="fa-solid
                     fa-cart-plus me-2"></i>Agregar al carrito</button>
             </div>
+            <app-alerta [alerta]="alerta"></app-alerta>
         </div>
         <div class="row d-flex">
             <h3>Comentarios</h3><br><br>
             <div class="comentario">
-                <p class="card-text infouser"> <i class="fa-solid fa-circle-user fa-lg"></i> @NataliaGiraldo - 15/02/2023</p>
+                <p class="card-text infouser"> <i class="fa-solid fa-circle-user fa-lg"></i> @NataliaGiraldo -
+                    15/02/2023</p>
                 <p>Me pareció una buena compra, cumple con lo que promete</p>
             </div>
             <div class="comentario">
-                <p class="card-text infouser"> <i class="fa-solid fa-circle-user fa-lg"></i> @AntonioLopez - 09/10/2023</p>
-                <p>Lo compre y a los dos meses se me daño, realmente es un producto que no recomiendo, siento que perdí mi dinero</p>
+                <p class="card-text infouser"> <i class="fa-solid fa-circle-user fa-lg"></i> @AntonioLopez - 09/10/2023
+                </p>
+                <p>Lo compre y a los dos meses se me daño, realmente es un producto que no recomiendo, siento que perdí
+                    mi dinero</p>
             </div>
         </div>
     </div>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CategoriaService } from 'src/app/servicios/categoria.service';
+import { TokenService } from 'src/app/servicios/token.service';
 
 @Component({
   selector: 'app-inicio',

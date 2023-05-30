@@ -2,71 +2,69 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4" style=" text-align: center;">
-                <img src="../assets/imagenes/goku_borrar.jpg" class="rounded-circle" alt="..." width="300" height="300">
+                <img src="../assets/imagenes/perfil.png" class="rounded-circle" alt="..." width="250" height="150">
                 <br><br>
-                <p>@dani_zuluaga</p>
-                <p>Miembro desde Febrero 2019</p>
+                <p><b>{{usuario.nombre}}</b></p>
+                <!--<p>Miembro desde Febrero 2019</p>
                 <p>Total Publicaciones: 9</p>
-                <p>Total Comentarios: 16</p>
+                <p>Total Comentarios: 16</p>-->
             </div>
             <div class="col-md-8">
                 <h3><b>DATOS PERSONALES</b></h3>
                 <form>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="nombre" placeholder="Daniel Stiven">
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="apellido" placeholder="Zuluaga Rodriguez">
-                    </div>
-
-                    <div class="form-row d-flex">
-                        <div class="form-group col-md-6 d-flex">
-                            <select class="form-control" style="width: 300px;" id="tipoDocumento">
-                                <option selected>Cédula de Ciudadanía</option>
-                                <option>Cédula de extranjería</option>
-                                <option>Permiso Especial Pernanente</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <input type="text" class="form-control" id="telefono">
-                        </div>
+                        <label for="nombre">Nombres</label>
+                        <input type="text" #nombre="ngModel" [ngClass]="nombre.invalid &&            
+                        (nombre.dirty || nombre.touched) ? 'is-invalid' : ''" name="nombre"
+                            [(ngModel)]="usuario.nombre" class="form-control" id="nombre" placeholder="">
                     </div>
 
                     <div class="form-group">
-                        <input type="email" class="form-control" id="email" placeholder="danielzuluaga1998@gmail.com">
+                        <label for="cedula">Cédula</label>
+                        <input type="text" #cedula="ngModel" [ngClass]="cedula.invalid &&            
+                        (cedula.dirty || cedula.touched) ? 'is-invalid' : ''" name="cedula"
+                            [(ngModel)]="usuario.cedula" class="form-control" id="cedula" placeholder="">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" #email="ngModel" [ngClass]="email.invalid &&
+                        (email.dirty || email.touched) ? 'is-invalid' : ''" type="email" name="email"
+                            [(ngModel)]="usuario.email" class="form-control" id="email" placeholder="">
                     </div>
 
                     <div class="form-row d-flex">
                         <div class="form-group col-md-2">
-                            <input type="text" class="form-control" id="indicativo" style="width: 100px;">
+                            <label>Indicativo</label>
+                            <input type="text" class="form-control" id="indicativo" style="width: 100px;"
+                                placeholder="+57" readonly>
                         </div>
                         <div class="form-group col-md-10">
-                            <input type="text" class="form-control" id="telefono">
+                            <label for="telefono">Teléfono</label>
+                            <input #telefono="ngModel" class="form-control" [ngClass]="telefono.invalid &&
+                            (telefono.dirty || telefono.touched) ? 'is-invalid' : ''" type="text" name="telefono"
+                                [(ngModel)]="usuario.telefono" placeholder="">
                         </div>
                     </div>
 
-                    <div class="form-row d-flex">
-                        <div class="form-group col-md-7">
-                            <input type="text" class="form-control" id="direccion"
-                                placeholder="Mz A casa 39 La Clarita">
-                        </div>
-                        <div class="form-group col-md-5">
-                            <input type="text" class="form-control" id="telefono" placeholder="Quimabya">
-                        </div>
+                    <div class="form-group">
+                        <label for="direccion">Dirección</label>
+                        <input #direccion="ngModel" class="form-control" [ngClass]="direccion.invalid &&
+                        (direccion.dirty || direccion.touched) ? 'is-invalid' : ''" type="text" name="direccion"
+                            [(ngModel)]="usuario.direccion" placeholder="">
                     </div>
 
-                    <h3><b>DATOS INICIO SESION</b></h3>
-                    <div class="form-row d-flex">
-                        <div class="form-group col-md-6 d-flex">
-                            <input type="text" class="form-control" id="usuario" placeholder="@dani_zuluaga">
-                        </div>
-                        <div class="form-group col-md-6">
-                            <input type="password" class="form-control" id="password" placeholder="Password">
-                        </div>
+                    <div class="form-group">
+                        <label for="ciudad">Ciudad</label>
+                        <input #ciudad="ngModel" class="form-control" [ngClass]="ciudad.invalid &&        
+                        (ciudad.dirty || ciudad.touched) ? 'is-invalid' : ''" type="text" name="ciudad"
+                            [(ngModel)]="usuario.ciudad" required maxlength="50" placeholder="" />
                     </div>
+
                     <div class="text-center" style="margin-top: 1em;">
-                        <button type="submit" class="btn btn-primary btn-lg">Actualizar</button>
+                        <button type="submit" class="btn btn-primary btn-lg" (click)="actualizar()">Actualizar</button>
                     </div>
+                    <app-alerta [alerta]="alerta"></app-alerta>
                 </form>
             </div>
         </div>

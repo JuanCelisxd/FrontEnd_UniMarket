@@ -7,4 +7,5 @@ export class ProductoDTO {
     fechaLimite: Date = new Date();
     idUsuario: number = 0;
     categoriasList: string[] = [];
+    usuarioCreacion: string = "";
 }

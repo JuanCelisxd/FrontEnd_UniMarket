@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
 import { Alerta } from 'src/app/modelo/alerta';
 import { ProductoDTO } from 'src/app/modelo/producto-dto';
+import { UsuarioDTO } from 'src/app/modelo/usuario-dto';
 import { CategoriaService } from 'src/app/servicios/categoria.service';
 import { ImagenService } from 'src/app/servicios/imagen.service';
 import { ProductoService } from 'src/app/servicios/producto.service';
+import { TokenService } from 'src/app/servicios/token.service';
+import { UsuarioService } from 'src/app/servicios/usuario.service';
 
 @Component({
   selector: 'app-crear-producto',
@@ -17,10 +20,19 @@ export class CrearProductoComponent {
   archivos!: FileList;
   alerta!: Alerta;
   categoria: string = "";
+  idUsuario: number;
 
-  constructor(private imagenService: ImagenService, private productoService: ProductoService, private categoriaService: CategoriaService) {
+  constructor(private imagenService: ImagenService, 
+    private productoService: ProductoService, 
+    private categoriaService: CategoriaService, 
+    private usuarioService: UsuarioService,
+    private tokenService: TokenService) {
+
     this.categorias = [];
     this.productoDTO = new ProductoDTO();
+    this.idUsuario = 0;
+
+    this.obtenerUsuarioSesion();
   }
 
   ngOnInit(): void {
@@ -37,16 +49,16 @@ export class CrearProductoComponent {
 
   public crearProducto() {
     const objeto = this;
-    this.productoDTO.idUsuario = 1;
+    this.productoDTO.idUsuario = this.idUsuario;
     this.productoDTO.categoriasList.push(this.categoria);
     console.log(this.productoDTO);
 
     if (this.productoDTO.imagenes != null) {
       this.productoService.crear(this.productoDTO).subscribe({
         next: data => {
-          objeto.alerta = new Alerta(data.response, "success");          
+          objeto.alerta = new Alerta(data.response, "success");
         },
-        error: error => {        
+        error: error => {
           objeto.alerta = new Alerta(error.error.response, "danger");
         }
       });
@@ -71,7 +83,7 @@ export class CrearProductoComponent {
       formData.append('file', this.archivos[0]);
 
       let mapImagenes = new Map<string, string>();
-      let mapJson = {};      
+      let mapJson = {};
 
       this.imagenService.subir(formData).subscribe({
         next: data => {
@@ -89,4 +101,18 @@ export class CrearProductoComponent {
       console.log('Debe seleccionar al menos una imagen y subirla');
     }
   }
+
+  obtenerUsuarioSesion() {
+    const email = this.tokenService.getEmail();
+
+    this.usuarioService.obtenerByEmail(email).subscribe({
+      next: data => {
+        this.idUsuario = data.response.idUsuario;
+      },
+      error: error => {
+        console.log(error);
+      }
+    })
+  }
+
 }

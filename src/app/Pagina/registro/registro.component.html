@@ -72,6 +72,9 @@
                     <button type="submit" class="btn btn-primary btn-lg" [disabled]="f.invalid || !sonIguales()">Registrarme</button>
                 </div>
                 <app-alerta [alerta]="alerta"></app-alerta>
+                <div style="margin-top: 1em;">
+                    <a routerLink="/login"><i class="fa-sharp fa-solid fa-arrow-left fa-lg"></i><button type="submit" class="btn btn-primary btn-lg">Volver al inicio</button></a>
+                </div>
             </form>
         </div>
         <div class="col-md-4">

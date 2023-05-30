@@ -9,7 +9,7 @@ import { UsuarioDTO } from '../modelo/usuario-dto';
 })
 export class UsuarioService {
 
-  private userUrl = "http://localhost:8081/api/usuarios";
+  private userUrl = "http://localhost:8081/api/usuario";
 
   constructor(private http: HttpClient) { }
 
@@ -22,7 +22,11 @@ export class UsuarioService {
   }
 
   public actualizar(codigo: number, usuario: UsuarioDTO): Observable<MensajeDTO> {
-    return this.http.put<MensajeDTO>(`${this.userUrl}/${codigo}`, usuario);
+    return this.http.put<MensajeDTO>(`${this.userUrl}/actualizar/${codigo}`, usuario);
+  }
+
+  public obtenerByEmail(email: string): Observable<MensajeDTO> {
+    return this.http.get<MensajeDTO>(`${this.userUrl}/findbyemail/${email}`);
   }
 
 }

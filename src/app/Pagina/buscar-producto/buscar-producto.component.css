@@ -14,7 +14,7 @@ h5 {
     color: #32B352;
 }
 
-.btn {
+.btn-item-producto {
     background-color: #32B352;
     border-color: #32B352;
     border-radius: 15px;
@@ -22,4 +22,15 @@ h5 {
 
 .busqueda{    
     margin-bottom: 2em;
+}
+
+.contenedor-categorias{
+    background-color: #D8E0E8;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding: 1em;
+}
+
+.col-3{
+    margin-bottom: 0.5em;
 }

@@ -15,24 +15,11 @@ import { ProductoService } from 'src/app/servicios/producto.service';
 export class BusquedaComponent {
 
   textoBusqueda: string;
-  productos: ProductoGetDTO[];
-  productosAprobados: ProductoModeradorDto[];
-  filtro: ProductoGetDTO[];
 
   constructor(private route: ActivatedRoute, private router: Router, private productoServicio: ProductoService, private productoAp: ProductoEstadosService) {
     this.textoBusqueda = '';
-    console.log(this.textoBusqueda);
-    this.productos = this.obtenerProductos();
-    this.productosAprobados = this.productoAp.listar();
-    this.filtro = [];
-    this.route.params.subscribe(params => {
-      this.textoBusqueda = params['texto'];
-      this.filtro = this.productos.filter(p =>
-        p.nombre.toLocaleLowerCase().includes(this.textoBusqueda.toLocaleLowerCase()));
-      /*this.filtro = this.productosAprobados.filter(p =>
-        p.nombre.toLocaleLowerCase().includes(this.textoBusqueda.toLocaleLowerCase()));*/
-    })
   }
+
   public iraBusqueda(valor: string) {
     if (valor) {
       this.router.navigate(["/buscar-producto", valor]);

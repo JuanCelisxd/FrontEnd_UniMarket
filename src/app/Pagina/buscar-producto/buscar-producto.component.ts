@@ -4,6 +4,7 @@ import { ProductoGetDTO } from 'src/app/modelo/producto-get-dto';
 import { ProductoService } from 'src/app/servicios/producto.service';
 import { ProductoModeradorDto } from 'src/app/modelo/producto-moderador-dto';
 import { ProductoEstadosService } from 'src/app/servicios/producto-estados.service';
+import { CategoriaService } from 'src/app/servicios/categoria.service';
 
 @Component({
   selector: 'app-buscar-producto',
@@ -12,47 +13,61 @@ import { ProductoEstadosService } from 'src/app/servicios/producto-estados.servi
 })
 export class BuscarProductoComponent {
 
-  productos: any = []
-  filtro: ProductoGetDTO[];
+  productos: ProductoGetDTO[] = [];
+  filtro: ProductoGetDTO[] = [];
+  categorias: string[];
   //productosAprobados: ProductoModeradorDto[];
   textoBusqueda: string;
+  categoraFilter: string = "";
 
-  constructor(private route: ActivatedRoute, private router: Router, private productoServicio: ProductoService, private productoAp: ProductoEstadosService) {
+  constructor(private route: ActivatedRoute, private router: Router, private productoServicio: ProductoService, private productoAp: ProductoEstadosService, private categoriaService: CategoriaService) {
+
     this.textoBusqueda = "";
+    this.categorias = [];
+    this.obtenerCategorias();
+
     this.productoServicio.listarAll().subscribe({
       next: data => {
         this.productos = data.response;
+        this.filtro = this.productos;
+
+        this.route.params.subscribe(params => {
+          this.textoBusqueda = params["texto"];
+          if (this.textoBusqueda && this.textoBusqueda != "") {
+            this.filtro = this.productos.filter(p => p.nombre.toLocaleLowerCase().includes(this.textoBusqueda.toLocaleLowerCase()));
+
+            /*this.filtro = this.productosAprobados.filter(p =>
+              p.nombre.toLocaleLowerCase().includes(this.textoBusqueda.toLocaleLowerCase()));*/
+          }
+        });
       },
       error: error => {
         console.log(error);
       }
     });
-    console.log(this.productos);
-    //this.productosAprobados = this.productoAp.listar();
-    this.filtro = this.productos;
 
-    /*this.route.params.subscribe(params => {
-      this.textoBusqueda = params["texto"];
-      if (this.textoBusqueda && this.textoBusqueda != "") {
-        this.filtro = this.productos.filter(p => p.nombre.toLocaleLowerCase().includes(this.textoBusqueda.toLocaleLowerCase()));
-        this.filtro = this.productosAprobados.filter(p =>
-          p.nombre.toLocaleLowerCase().includes(this.textoBusqueda.toLocaleLowerCase()));
-      }
-    })*/
   }
 
   verDetalleProducto(codigo: number) {
-    console.log("El codigo del producto es:" + codigo);
     if (codigo) {
       this.router.navigate(["/detalle-producto", codigo]);
     }
   }
 
-  public obtenerProductos(): ProductoGetDTO[] {
-    let productosGet: ProductoGetDTO[] = [];
-
-
-
-    return productosGet;
+  obtenerCategorias() {
+    this.categoriaService.listar().subscribe({
+      next: data => {
+        this.categorias = data.response;
+      },
+      error: error => {
+        console.log(error);
+      }
+    })
   }
+
+  filtrarPorCategoria(categoria: string){    
+    this.filtro = this.productos.filter(p => p.categorias.includes(categoria));
+    this.categoraFilter = categoria;
+  }
+
 }

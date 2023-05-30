@@ -1,0 +1,24 @@
+.container-fluid {  
+
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.container{
+    background-color: white;
+    margin-bottom: 1em;
+}
+
+h2,
+p {
+    color: #0E3F79;
+}
+
+h2 {
+    margin-bottom: 1em;
+}
+
+.infouser {
+    color: #32B352;
+}
+

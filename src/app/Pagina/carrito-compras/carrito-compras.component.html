@@ -4,8 +4,8 @@
             <div class="col-md-8">
                 <div class="row mb-2" *ngFor="let item of productos">
                     <div class="row  border rounded overflow-hidden  producto">
-                        <div class="col-auto">
-                            <img src={{item.producto.imagenes}} width="200" height="250" />
+                        <div class="col-auto" *ngFor="let imagen of item.producto.imagenes | keyvalue">
+                            <img src={{imagen.value}} width="200" height="250" />
                         </div>
                         <div class="col p-4 d-flex flex-column position-static">
                             <a [routerLink]="" (click)="eliminarItem(item)"><i
@@ -13,7 +13,7 @@
                                     style="color: #0E3F79;"></i></a>
                             <h3 class="mb-0">{{item.producto.nombre}}</h3> <br>
                             <p class="card-text infouser"> <i class="fa-solid fa-circle-user fa-lg"></i>
-                                @NataliaGiraldo </p>
+                                @{{item.producto.usuarioCreacion}}</p>
                             <p>{{item.producto.descripcion}}</p>
                             <h2 class="mb-0">$ {{item.producto.precio}} COP</h2><br>
                             <div class="stars">
@@ -25,7 +25,7 @@
                                 <a [routerLink]="" (click)="disminuirCantidad(item)"><i
                                         class="fa-solid fa-circle-minus fa-xl icons-plus-minor"
                                         style="color: #BA2C12;"></i></a>
-                                <h5><b>{{item.cantidad}}</b></h5>
+                                <h5><b>{{item.unidades}}</b></h5>
                                 <a [routerLink]="" (click)="aumentarCantidad(item)"><i
                                         class="fa-solid fa-circle-plus fa-xl icons-plus-minor"
                                         style="color: #32B352;"></i></a>
@@ -40,13 +40,14 @@
                 </div>
                 <h3><b>Método de pago</b></h3>
                 <button type="button" class="btn btn-primary btn-lg" (click)="realizarCompra()">Pagar</button><br>
+                <app-alerta [alerta]="alerta"></app-alerta>
             </div>
         </div>
 
-        <div *ngIf="productos.length == 0" class="row" style="text-align: center;">
+        <div *ngIf="productos.length == 0" class="row" style="text-align: center; margin-top: 3em;">
             <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                 <h3>No hay productos en el carrito aún</h3>
-                <img src="../assets/imagenes/no-hay-productos.png" />
+                <img src="../assets/imagenes/no-hay-productos.png" width="50%" height="80%" />
             </div>
         </div>
     </div>
