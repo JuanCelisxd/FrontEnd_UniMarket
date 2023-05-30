@@ -9,7 +9,7 @@ import { MensajeDTO } from '../modelo/mensaje-dto';
 })
 export class CategoriaService {
 
-  private catURL = "http://localhost:8081/api/categorias";
+  private catURL = "https://unimarket-production-369a.up.railway.app/api/categorias";
 
   constructor(private http: HttpClient) { }
 

@@ -9,7 +9,7 @@ import { UsuarioDTO } from '../modelo/usuario-dto';
 })
 export class UsuarioService {
 
-  private userUrl = "http://localhost:8081/api/usuario";
+  private userUrl = "https://unimarket-production-369a.up.railway.app/api/usuario";
 
   constructor(private http: HttpClient) { }
 

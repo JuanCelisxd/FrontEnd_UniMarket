@@ -9,7 +9,7 @@ import { MensajeDTO } from '../modelo/mensaje-dto';
 })
 export class CompraService {
 
-  private compraURL = "http://localhost:8081/api/compra";
+  private compraURL = "https://unimarket-production-369a.up.railway.app/api/compra";
 
   constructor(private http: HttpClient) { }
 

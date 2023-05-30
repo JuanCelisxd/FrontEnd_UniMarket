@@ -9,7 +9,7 @@ import { ProductoDTO } from '../modelo/producto-dto';
 })
 export class ProductoService {
 
-  private productoURL = "http://localhost:8081/api/producto";
+  private productoURL = "https://unimarket-production-369a.up.railway.app/api/producto";
 
   constructor(private http: HttpClient) { }
 
